@@ -15,7 +15,6 @@ export const CategorySelect = () => {
 
 
 const render = () => {
-  debugger
   const categoriesMap = categories.map(category => `<option value="${category.id}">${category.name}</option>`).join("")
   contentTarget.innerHtml = `
   <select class="dropdown" id="categorySelect">
