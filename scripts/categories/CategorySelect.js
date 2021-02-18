@@ -7,15 +7,20 @@ let categories = []
 
 export const CategorySelect = () => {
   getCategories()
-  categories = useCategories()
-  render()
+  .then(() => {
+    categories = useCategories()
+    render()
+  })
 }
 
+
 const render = () => {
+  debugger
+  const categoriesMap = categories.map(category => `<option value="${category.id}">${category.name}</option>`).join("")
   contentTarget.innerHtml = `
-      <select class="dropdown" id="categorySelect">
-          <option value="0">All baked goods...</option>
-          ${categories.map(category => `<option value="${category.id}">${category.text}</option>`).join("")}
+  <select class="dropdown" id="categorySelect">
+  <option value="0">All baked goods...</option>
+  ${categoriesMap}
       </select>
   `
 }
