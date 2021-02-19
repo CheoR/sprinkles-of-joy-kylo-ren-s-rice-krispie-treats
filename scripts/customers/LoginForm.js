@@ -1,4 +1,5 @@
 import { authHelper } from "../auth/authHelper.js"
+import { CustomerNav } from "./CustomerNav.js"
 import { customerLogin } from "./CustomerProvider.js"
 
 const eventHub = document.querySelector("#container")
@@ -58,3 +59,10 @@ eventHub.addEventListener("click", e => {
 })
 
 eventHub.addEventListener("showLoginForm", LoginForm)
+
+// let logoutTarget = document.querySelector(".userNav")
+eventHub.addEventListener("logout", logoutClicked => {
+  sessionStorage.clear()
+  LoginForm()
+  CustomerNav()
+})
