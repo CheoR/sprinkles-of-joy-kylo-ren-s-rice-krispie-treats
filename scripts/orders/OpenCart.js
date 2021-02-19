@@ -42,12 +42,13 @@ const render = () => {
 eventHub.addEventListener("showCustomerCart", e => OpenCart())
 
 eventHub.addEventListener("addToCart", event => {
-  const productId = event.detail.productId
+  const productId = event.detail.addedProduct
   getProducts()
     .then(() => {
       const allProducts = useProducts()
       const productToBeAdded = allProducts.find(prod => prod.id === productId)
       productsInCart.push(productToBeAdded)
+
       OpenCart()
     })
 })

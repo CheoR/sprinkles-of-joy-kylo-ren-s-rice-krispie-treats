@@ -10,7 +10,6 @@ export const getCategories = () => {
     .then(response => response.json())
     .then(categoriesArray => {
       categories = categoriesArray
-      console.log(categories)
     })
 }
 

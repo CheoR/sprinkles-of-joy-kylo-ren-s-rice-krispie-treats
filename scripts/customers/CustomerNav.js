@@ -5,7 +5,7 @@ const eventHub = document.querySelector("#container")
 const userNav = document.querySelector(".userNav")
 
 export const CustomerNav = () => {
-  // debugger
+
   if (authHelper.isUserLoggedIn()) {
     getCustomer(authHelper.getCurrentUserId())
       .then(userObject => {
