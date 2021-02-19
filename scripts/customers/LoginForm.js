@@ -64,5 +64,5 @@ eventHub.addEventListener("showLoginForm", LoginForm)
 eventHub.addEventListener("logout", logoutClicked => {
   sessionStorage.clear()
   LoginForm()
-  // CustomerNav()
+  CustomerNav()
 })

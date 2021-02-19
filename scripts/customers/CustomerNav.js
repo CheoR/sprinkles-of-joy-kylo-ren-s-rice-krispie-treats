@@ -11,11 +11,14 @@ export const CustomerNav = () => {
       .then(userObject => {
         render(userObject)
       })
+  } else {
+    render(null)
   }
 }
 
 const render = (customer) => {
-  userNav.innerHTML = `
+  if (customer) { 
+    userNav.innerHTML = `
     <h3>Welcome ${customer.name}!</h3>
     <ul class="userNav__links">
     <li class="userNav__link" id="userNav--showCart">My Cart</li>
@@ -24,6 +27,9 @@ const render = (customer) => {
     <li class="userNav__link" id="userNav--logout">Logout</li>
     </ul>
   `
+    } else {
+      userNav.innerHTML = ""
+    }
 }
 
 eventHub.addEventListener("userLoggedIn", event => {
