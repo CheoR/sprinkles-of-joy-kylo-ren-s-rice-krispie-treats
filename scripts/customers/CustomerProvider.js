@@ -19,5 +19,5 @@ export const getCustomer = (id) => {
 export const customerLogin = (email, password) => {
   return fetch(`${bakeryAPI.baseURL}/customers?email=${email}&password=${password}`)
     .then(res => res.json())
-    .then(user => user.length ? user[0] : false)
+    .then(user =>  user.length ? user[0] : false)
 }
