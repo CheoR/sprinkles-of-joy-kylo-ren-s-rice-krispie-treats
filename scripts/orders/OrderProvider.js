@@ -11,7 +11,7 @@ export const getOrders = () => {
   return fetch(`${bakeryAPI.baseURL}/orders?_expand=status`)
     .then(response => response.json())
     .then(response => {
-      customerOrders = response
+      orders = response
     })
 }
 
@@ -27,10 +27,11 @@ export const saveOrder = (order, productsInOrder) => {
     .then(() => {
       const orderProducts = productsInOrder.map(product => {
         return {
-          "orderId": createdOrder.id,
+          "orderId": order.id,
           "productId": product.id
         }
       })
+      productsInOrder = [] //change
       return saveOrderProducts(orderProducts)
     })
     .then(() => getOrders())

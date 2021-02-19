@@ -15,28 +15,33 @@ export const OpenCart = () => {
 const render = () => {
   let cartHTML = ""
   let totalCost = 0
-
-  for (const product of productsInCart) {
-    cartHTML += `
+  if (productsInCart){
+    for (const product of productsInCart) {
+      cartHTML += `
+        <div class="cart">
+          <p>${product.name}</p>
+          <p>$${product.price.toFixed(2)}</p>
+        </div>
+      `
+      totalCost += product.price
+    }
+  
+    userCart.innerHTML = `
+      <div>
+      <h4>Cart</h4>
+      ${cartHTML}
+      <hr/>
       <div class="cart">
-        <p>${product.name}</p>
-        <p>$${product.price.toFixed(2)}</p>
+      <button id="placeOrder">Place Order</button>
+      <p>$${totalCost.toFixed(2)}</p>
+      </div>
       </div>
     `
-    totalCost += product.price
+    
   }
-
-  userCart.innerHTML = `
-    <div>
-    <h4>Cart</h4>
-    ${cartHTML}
-    <hr/>
-    <div class="cart">
-    <button id="placeOrder">Place Order</button>
-    <p>$${totalCost.toFixed(2)}</p>
-    </div>
-    </div>
-  `
+    else {
+      userCart.innerHTML = ""
+    }
 }
 
 eventHub.addEventListener("showCustomerCart", e => OpenCart())
