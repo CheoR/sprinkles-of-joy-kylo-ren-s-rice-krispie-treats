@@ -31,6 +31,7 @@ export const saveOrder = (order, productsInOrder) => {
           "productId": product.id
         }
       })
+      productsInOrder = [] //change
       return saveOrderProducts(orderProducts)
     })
     .then(() => getOrders())
