@@ -8,7 +8,7 @@ export const Product = (product, category) => {
               <p>$${product.price}</p>
           </header>
           <div>
-              <button id="addProduct">Add to Cart</button>
+              <button id="addProduct--${product.id}">Add to Cart</button>
               <p>${product.description} [${category.name}]</p>
           </div>
       </section>

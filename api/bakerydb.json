@@ -281,6 +281,24 @@
       "statusId": 3,
       "timestamp": 1613631309392,
       "id": 13
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1613765273304,
+      "id": 14
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1613765275534,
+      "id": 15
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1613765277623,
+      "id": 16
     }
   ],
   "orderProducts": [
@@ -425,16 +443,16 @@
       "id": 28
     }
   ],
-  "reviews" : [
+  "reviews": [
     {
       "id": 1,
-      "rating": 5.0,
+      "rating": 5,
       "review": "",
       "customerId": 0,
       "productId": 0
     }
   ],
-  "contactInqueries" : [
+  "contactInqueries": [
     {
       "id": 1,
       "contactEmail": "",
