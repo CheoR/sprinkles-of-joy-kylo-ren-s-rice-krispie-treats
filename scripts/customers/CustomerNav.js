@@ -5,6 +5,7 @@ const eventHub = document.querySelector("#container")
 const userNav = document.querySelector(".userNav")
 
 export const CustomerNav = () => {
+  // debugger
   if (authHelper.isUserLoggedIn()) {
     getCustomer(authHelper.getCurrentUserId())
       .then(userObject => {
@@ -20,6 +21,7 @@ const render = (customer) => {
     <li class="userNav__link" id="userNav--showCart">My Cart</li>
     <li class="userNav__link" id="userNav--newReview">New Review</li>
     <li class="userNav__link" id="userNav--pastOrders">Order History</li>
+    <li class="userNav__link" id="userNav--logout">Logout</li>
     </ul>
   `
 }
@@ -41,6 +43,9 @@ eventHub.addEventListener("click", event => {
         break;
       case "pastOrders":
         customEvent = new CustomEvent("showPastOrders")
+        break;
+      case "logout":
+        customEvent = new CustomEvent("logout")
         break;
     }
     eventHub.dispatchEvent(customEvent)
