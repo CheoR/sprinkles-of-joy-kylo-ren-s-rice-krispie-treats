@@ -17,7 +17,7 @@ export const getCustomer = (id) => {
 }
 
 export const customerLogin = (email, password) => {
-  return fetch(`http://localhost:8088/customers?email=${email}&password=${password}`)
+  return fetch(`${bakeryAPI.baseURL}/customers?email=${email}&password=${password}`)
     .then(res => res.json())
     .then(user =>  user.length ? user[0] : false)
 }
