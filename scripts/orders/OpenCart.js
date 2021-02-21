@@ -64,6 +64,14 @@ eventHub.addEventListener("addToCart", event => {
 })
 
 eventHub.addEventListener("click", clickEvent => {
+
+    const options = {
+      hour: '2-digit',
+      minute: '2-digit',
+      year: "numeric",  
+      month: "numeric",  
+      day: "numeric"
+    }
   if (clickEvent.target.id === "placeOrder" && productsInCart.length !== 0) {
     const currentCustomerId = parseInt(authHelper.getCurrentUserId())
     getStatuses()
@@ -71,10 +79,12 @@ eventHub.addEventListener("click", clickEvent => {
         const allStatuses = useStatuses()
         const initialOrderStatus = allStatuses.find(status => status.label.toLowerCase() === "Scheduled".toLowerCase())
 
+        const dateObj = new Date()
+
         const newOrder = {
           "customerId": currentCustomerId,
           "statusId": initialOrderStatus.id,
-          "timestamp": Date.now()
+          "timestamp": dateObj.toLocaleDateString('en-US', options)
         }
 
         console.info("OpenCart.js - placeOrder")

@@ -204,12 +204,7 @@
     }
   ],
   "orders": [
-    {
-      "id": 1,
-      "customerId": 3,
-      "statusId": 1,
-      "timestamp": 1613628996949
-    }
+
   ],
   "orderProducts": [
     {
@@ -523,6 +518,10 @@
     {
       "productId": 1,
       "id": 71
+    },
+    {
+      "productId": 1,
+      "id": 72
     }
   ],
   "reviews": [
