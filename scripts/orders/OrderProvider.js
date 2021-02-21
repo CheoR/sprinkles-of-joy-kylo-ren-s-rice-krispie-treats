@@ -32,11 +32,36 @@ export const saveOrder = (order, productsInOrder) => {
       },
       body: JSON.stringify(order)
     })
-      .then(res => res.json())
-      .then(() => {
+      .then(res => { 
+        const res_json = res.json()
+        // console.info("OrderProvider.js  res.json()")
+        // console.table(res_json)
+        return res_json
+      })
+      .then((createdOrder) => {
+        /*
+          response from 41 will be in order.id is the saved order
+
+        */
+        console.info("OrderProvider.js - saveOrder - productsInOrder")
+        console.table(productsInOrder)
+        console.table(order)
+        console.log("=====")
+        debugger
+        /*
+        OrderProduct is saving without orderId
+        {
+          "productId": 1,
+          "id": 1
+        },
+        {
+          "productId": 2,
+          "id": 2
+        }
+        */
         const orderProducts = productsInOrder.map(product => {
           return {
-            "orderId": order.id,
+            "orderId": createdOrder.id,
             "productId": product.id
           }
         })
@@ -47,6 +72,10 @@ export const saveOrder = (order, productsInOrder) => {
       })
       .then(() => getOrders())
       .then(dispatchStateChangeEvent)
+      /*
+        statusId needs to be set before calling getOrders, else resuts in error:
+        GET http://localhost:8088/orders?_expand=status net::ERR_CONNECTION_REFUSED
+      */
   } else {
       alert("YOu must be logged in to place order")
   }

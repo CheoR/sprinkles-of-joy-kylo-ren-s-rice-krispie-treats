@@ -15,6 +15,8 @@ export const getOrderProducts = () => {
 }
 
 export const saveOrderProducts = (orderProductsArray) => {
+  console.info("OrderProductProvider - saveOrderProducts - orderProductsArray")
+  console.table(orderProductsArray)
   const orderProductsPromiseArray = orderProductsArray.map(op => {
     return fetch(`${bakeryAPI.baseURL}/orderproducts`, {
       method: "POST",
