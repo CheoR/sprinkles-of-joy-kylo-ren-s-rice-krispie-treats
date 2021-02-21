@@ -92,5 +92,14 @@ eventHub.addEventListener("click", clickEvent => {
         console.table(productsInCart)
         return saveOrder(newOrder, productsInCart)
       })
+      .then(() => {
+        /*
+          save order complete, clear cart
+        */
+       console.log("in the last then")
+       productsInCart = []
+       OpenCart()
+
+      }) // then 
   }
 })

@@ -47,7 +47,7 @@ export const saveOrder = (order, productsInOrder) => {
         console.table(productsInOrder)
         console.table(order)
         console.log("=====")
-        debugger
+
         /*
         OrderProduct is saving without orderId
         {
