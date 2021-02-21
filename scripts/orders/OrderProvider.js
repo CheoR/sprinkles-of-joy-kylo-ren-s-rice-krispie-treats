@@ -11,6 +11,8 @@ export const getOrders = () => {
   return fetch(`${bakeryAPI.baseURL}/orders?_expand=status`)
     .then(response => response.json())
     .then(response => {
+      console.info("OrderProvider.js")
+      console.table(response)
       orders = response
     })
 }
@@ -31,6 +33,8 @@ export const saveOrder = (order, productsInOrder) => {
           "productId": product.id
         }
       })
+      console.info("OrderProvider.js - saveOrder")
+      console.table(orderProducts)
       productsInOrder = [] //change
       return saveOrderProducts(orderProducts)
     })
@@ -40,6 +44,6 @@ export const saveOrder = (order, productsInOrder) => {
 
 const dispatchStateChangeEvent = () => {
   const ordersStateChangedEvent = new CustomEvent("ordersStateChanged")
-
+  console.info("Dispatching: ordersStateChanged")
   eventHub.dispatchEvent(ordersStateChangedEvent)
 }

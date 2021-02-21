@@ -9,6 +9,8 @@ export const CategorySelect = () => {
   getCategories()
   .then(() => {
     categories = useCategories()
+    console.info("CategoryProvider.js")
+    console.table(categories)
     render()
   })
 }
@@ -31,6 +33,7 @@ eventHub.addEventListener("change", changeEvent => {
         selectedCategory: changeEvent.target.value
       }
     })
+    console.info("dispatching: categorySelected")
     eventHub.dispatchEvent(categoryCustomEvent)
   }
 })

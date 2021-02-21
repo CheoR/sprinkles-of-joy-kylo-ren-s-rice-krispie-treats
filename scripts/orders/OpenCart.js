@@ -16,6 +16,8 @@ const render = () => {
   let cartHTML = ""
   let totalCost = 0
   if (productsInCart){
+    console.info("OpenCart.js")
+    console.table(productsInCart)
     for (const product of productsInCart) {
       cartHTML += `
         <div class="cart">
@@ -54,6 +56,9 @@ eventHub.addEventListener("addToCart", event => {
       const productToBeAdded = allProducts.find(prod => prod.id === productId)
       productsInCart.push(productToBeAdded)
 
+      console.info("OpenCart.js - addToCart")
+      console.table(allProducts)
+      console.table(productToBeAdded)
       OpenCart()
     })
 })
@@ -72,6 +77,9 @@ eventHub.addEventListener("click", clickEvent => {
           "timestamp": Date.now()
         }
 
+        console.info("OpenCart.js - placeOrder")
+        console.table(newOrder)
+        console.table(productsInCart)
         return saveOrder(newOrder, productsInCart)
       })
   }

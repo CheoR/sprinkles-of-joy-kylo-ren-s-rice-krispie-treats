@@ -10,10 +10,11 @@ let customerOrders = []
 
 export const OrderList = () => {
   if (authHelper.isUserLoggedIn()) {
-
+    console.info("OrderList.js")
     getOrders()
       .then(() => {
         customerOrders = useOrders()
+        console.table(customerOrders)
         render()
       })
   }
@@ -22,6 +23,8 @@ export const OrderList = () => {
 const render = () => {
   const ordersHtmlRepresentation = customerOrders.map(order => Order(order)).join("")
 
+  console.info("OrderList.js")
+  console.log(ordersHtmlRepresentation)
   contentContainer.innerHTML = `
   <div id="orders__modal" class="modal--parent">
         <div class="modal--content">
@@ -37,6 +40,8 @@ const render = () => {
 }
 
 eventHub.addEventListener("showOrderHistory", () => {
+  console.info("OrderLIst.js")
+  console.log("heard showOrderHistory")
   OrderList()
 })
 
