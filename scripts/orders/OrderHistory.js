@@ -1,7 +1,7 @@
 const eventHub = document.querySelector("#container")
 const contentTarget = document.querySelector(".userOrders")
 
-const renderCustomerOrderHistory = () => {
+ export const renderCustomerOrderHistory = () => {
 
 }
 

@@ -66,7 +66,7 @@ eventHub.addEventListener("showPastOrders", event => {
 })
 
 export const deleteOrder = (id) =>{
-  return fetch(`http://localhost:8088/orders/${id}`, {
+  return fetch(`http://localhost:8088/bakerydb/orders/${id}`, {
     method: "DELETE"
 })
 .then(getOrders)

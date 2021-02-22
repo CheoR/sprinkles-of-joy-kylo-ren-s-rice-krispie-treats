@@ -6,6 +6,7 @@ import {deleteOrder} from "./OrderProvider.js"
 
 const eventHub = document.querySelector("#container")
 const contentContainer = document.querySelector(".userOrders")
+import {renderCustomerOrderHistory} from "./OrderHistory.js"
 
 let customerOrders = []
 
@@ -15,27 +16,27 @@ export const OrderList = () => {
     getOrders()
       .then(() => {
         customerOrders = useOrders()
-        render()
+        renderCustomerOrderHistory()
       })
   }
 }
 
-const render = () => {
-  const ordersHtmlRepresentation = customerOrders.map(order => Order(order)).join("")
+// const render = () => {
+//   const ordersHtmlRepresentation = customerOrders.map(order => Order(order)).join("")
 
-  contentContainer.innerHTML = `
-  <div id="orders__modal" class="modal--parent">
-        <div class="modal--content">
-        <h3>Previous Orders</h3>
-        <div>
-        <h5>Ordered on</h5>
-        ${ordersHtmlRepresentation}
-        </div>
-        <button id="modal--close">Close</button>
-        </div>
-    </div>
-      `
-}
+//   contentContainer.innerHTML = `
+//   <div id="orders__modal" class="modal--parent">
+//         <div class="modal--content">
+//         <h3>Previous Orders</h3>
+//         <div>
+//         <h5>Ordered on</h5>
+//         ${ordersHtmlRepresentation}
+//         </div>
+//         <button id="modal--close">Close</button>
+//         </div>
+//     </div>
+//       `
+// }
 
 eventHub.addEventListener("showOrderHistory", () => {
   OrderList()
@@ -55,7 +56,6 @@ eventHub.addEventListener("click", clickEvent => {
   
   if (clickEvent.target.id.startsWith("deleteOrder")){
       const [prefix, id] = clickEvent.target.id.split("--")
-      debugger
       deleteOrder(id)
       .then(dispatchEvent)
       

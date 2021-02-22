@@ -217,6 +217,13 @@
       "timestamp": "2/22/2021, 02:48 PM",
       "orderTotal": 139.95,
       "id": 3
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": "2/22/2021, 03:56 PM",
+      "orderTotal": 102.97,
+      "id": 4
     }
   ],
   "orderProducts": [
@@ -259,6 +266,21 @@
       "orderId": 3,
       "productId": 3,
       "id": 12
+    },
+    {
+      "orderId": 4,
+      "productId": 1,
+      "id": 13
+    },
+    {
+      "orderId": 4,
+      "productId": 2,
+      "id": 14
+    },
+    {
+      "orderId": 4,
+      "productId": 3,
+      "id": 15
     }
   ],
   "reviews": [],
