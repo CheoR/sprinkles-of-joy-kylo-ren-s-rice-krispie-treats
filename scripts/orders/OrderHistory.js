@@ -22,3 +22,5 @@ eventHub.addEventListener("showCustomerOrderHistory", event => {
     }).join("")
     contentTarget.innerHTML = `${customerOrder}`
 })
+
+eventHub.addEventListener

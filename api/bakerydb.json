@@ -205,82 +205,99 @@
   ],
   "orders": [
     {
-      "customerId": 4,
+      "customerId": 1,
       "statusId": 3,
-      "timestamp": "2/22/2021, 02:46 PM",
-      "orderTotal": 102.97,
+      "timestamp": "2/22/2021, 04:10 PM",
+      "orderTotal": 142.95,
+      "id": 1
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": "2/22/2021, 04:10 PM",
+      "orderTotal": 85.98,
       "id": 2
     },
     {
-      "customerId": 4,
+      "customerId": 1,
       "statusId": 3,
-      "timestamp": "2/22/2021, 02:48 PM",
-      "orderTotal": 139.95,
+      "timestamp": "2/22/2021, 04:10 PM",
+      "orderTotal": 105.97,
       "id": 3
     },
     {
       "customerId": 1,
       "statusId": 3,
-      "timestamp": "2/22/2021, 03:56 PM",
-      "orderTotal": 102.97,
+      "timestamp": "2/22/2021, 04:10 PM",
+      "orderTotal": 86.97,
       "id": 4
     }
   ],
   "orderProducts": [
     {
-      "orderId": 2,
+      "orderId": 1,
+      "productId": 2,
+      "id": 1
+    },
+    {
+      "orderId": 1,
       "productId": 1,
+      "id": 2
+    },
+    {
+      "orderId": 1,
+      "productId": 3,
+      "id": 3
+    },
+    {
+      "orderId": 1,
+      "productId": 4,
+      "id": 4
+    },
+    {
+      "orderId": 1,
+      "productId": 4,
       "id": 5
     },
     {
       "orderId": 2,
-      "productId": 2,
+      "productId": 1,
       "id": 6
     },
     {
       "orderId": 2,
-      "productId": 3,
+      "productId": 2,
       "id": 7
     },
     {
       "orderId": 3,
-      "productId": 1,
+      "productId": 2,
       "id": 8
     },
     {
       "orderId": 3,
-      "productId": 3,
+      "productId": 1,
       "id": 9
     },
     {
       "orderId": 3,
-      "productId": 2,
+      "productId": 4,
       "id": 10
     },
     {
-      "orderId": 3,
-      "productId": 4,
+      "orderId": 4,
+      "productId": 3,
       "id": 11
     },
     {
-      "orderId": 3,
-      "productId": 3,
+      "orderId": 4,
+      "productId": 2,
       "id": 12
     },
     {
       "orderId": 4,
-      "productId": 1,
+      "productId": 4,
       "id": 13
-    },
-    {
-      "orderId": 4,
-      "productId": 2,
-      "id": 14
-    },
-    {
-      "orderId": 4,
-      "productId": 3,
-      "id": 15
     }
   ],
   "reviews": [],
