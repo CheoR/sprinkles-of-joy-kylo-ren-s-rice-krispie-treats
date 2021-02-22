@@ -1,5 +1,6 @@
 import { bakeryAPI } from "../Settings.js"
 import { saveOrderProducts } from "./OrderProductProvider.js"
+import { authHelper } from "../auth/authHelper.js"
 
 const eventHub = document.querySelector("#container")
 
@@ -45,3 +46,30 @@ const dispatchStateChangeEvent = () => {
 
   eventHub.dispatchEvent(ordersStateChangedEvent)
 }
+
+eventHub.addEventListener("showPastOrders", event => {
+    if (authHelper.isUserLoggedIn) {
+      const currentUserId = parseInt(authHelper.getCurrentUserId())
+      getOrders() // get current state of 'orders' in bakerydb.json
+      .then(() => {
+        const orders = useOrders() // get a copy of current 'orders'
+        const customerOrderHistory = orders.filter(order => order.customerId === currentUserId)
+        // console.log('customerOrderHistory: ', customerOrderHistory);
+      const customEvent = new CustomEvent ("showCustomerOrderHistory", {
+        detail: {
+          customerOrderHistory: customerOrderHistory
+        }
+      })
+      eventHub.dispatchEvent(customEvent)
+    })
+  }
+})
+
+
+// "orders": [
+//   {
+//     "id": 1,
+//     "customerId": 3,
+//     "statusId": 1,
+//     "timestamp": 1613628996949
+//   },

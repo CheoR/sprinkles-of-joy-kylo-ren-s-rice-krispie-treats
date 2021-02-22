@@ -205,358 +205,18 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "customerId": 3,
-      "statusId": 1,
-      "timestamp": 1613628996949
-    },
-    {
-      "id": 2,
-      "customerId": 3,
-      "statusId": 1,
-      "timestamp": 1613628996949
-    },
-    {
-      "id": 3,
-      "customerId": 1,
-      "statusId": 1,
-      "timestamp": 1613628996949
-    },
-    {
-      "customerId": 2,
-      "statusId": 1,
-      "timestamp": 1613628996949,
-      "id": 4
-    },
-    {
-      "customerId": 2,
-      "statusId": 1,
-      "timestamp": 1613629033602,
-      "id": 5
-    },
-    {
-      "customerId": 3,
-      "statusId": 1,
-      "timestamp": 1613629258759,
-      "id": 6
-    },
-    {
-      "customerId": 1,
-      "statusId": 1,
-      "timestamp": 1613631214988,
-      "id": 7
-    },
-    {
-      "customerId": 1,
-      "statusId": 1,
-      "timestamp": 1613631242333,
-      "id": 8
-    },
-    {
-      "customerId": 2,
-      "statusId": 2,
-      "timestamp": 1613631255084,
-      "id": 9
-    },
-    {
-      "customerId": 3,
-      "statusId": 1,
-      "timestamp": 1613631281534,
-      "id": 10
-    },
-    {
-      "customerId": 1,
-      "statusId": 2,
-      "timestamp": 1613631291930,
-      "id": 11
-    },
-    {
-      "customerId": 2,
+      "customerId": 4,
       "statusId": 3,
-      "timestamp": 1613631302278,
-      "id": 12
+      "timestamp": "2/22/2021, 02:46 PM",
+      "orderTotal": 102.97,
+      "id": 2
     },
     {
-      "customerId": 3,
+      "customerId": 4,
       "statusId": 3,
-      "timestamp": 1613631309392,
-      "id": 13
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613765273304,
-      "id": 14
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613765275534,
-      "id": 15
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613765277623,
-      "id": 16
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613766609126,
-      "id": 17
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613766612378,
-      "id": 18
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613767369585,
-      "id": 19
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613767542908,
-      "id": 20
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613767567431,
-      "id": 21
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613767725018,
-      "id": 22
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768300828,
-      "id": 23
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768422475,
-      "id": 24
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768433912,
-      "id": 25
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768435277,
-      "id": 26
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768436152,
-      "id": 27
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613768973788,
-      "id": 28
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613769566602,
-      "id": 29
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1613769846132,
-      "id": 30
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614006961636,
-      "id": 31
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614007145884,
-      "id": 32
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614007375174,
-      "id": 33
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614007548806,
-      "id": 34
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614010224582,
-      "id": 35
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614010250145,
-      "id": 36
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614010751663,
-      "id": 37
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614011359835,
-      "id": 38
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614011369875,
-      "id": 39
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614011421969,
-      "id": 40
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614011602661,
-      "id": 41
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012015202,
-      "id": 42
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012057274,
-      "id": 43
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012108433,
-      "id": 44
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012227498,
-      "id": 45
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012311622,
-      "id": 46
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012313787,
-      "id": 47
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012343252,
-      "id": 48
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012556830,
-      "id": 49
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614012570592,
-      "id": 50
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614014390196,
-      "id": 51
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614014414615,
-      "id": 52
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614014918571,
-      "id": 53
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614015174357,
-      "id": 54
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614015407103,
-      "id": 55
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614016231693,
-      "id": 56
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614016258329,
-      "id": 57
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614016432859,
-      "id": 58
-    },
-    {
-      "customerId": 1,
-      "statusId": 3,
-      "timestamp": 1614016505116,
-      "id": 59
+      "timestamp": "2/22/2021, 02:48 PM",
+      "orderTotal": 139.95,
+      "id": 3
     }
   ],
   "orderProducts": [
@@ -579,6 +239,46 @@
       "orderId": 59,
       "productId": 2,
       "id": 4
+    },
+    {
+      "orderId": 2,
+      "productId": 1,
+      "id": 5
+    },
+    {
+      "orderId": 2,
+      "productId": 2,
+      "id": 6
+    },
+    {
+      "orderId": 2,
+      "productId": 3,
+      "id": 7
+    },
+    {
+      "orderId": 3,
+      "productId": 1,
+      "id": 8
+    },
+    {
+      "orderId": 3,
+      "productId": 3,
+      "id": 9
+    },
+    {
+      "orderId": 3,
+      "productId": 2,
+      "id": 10
+    },
+    {
+      "orderId": 3,
+      "productId": 4,
+      "id": 11
+    },
+    {
+      "orderId": 3,
+      "productId": 3,
+      "id": 12
     }
   ],
   "reviews": [

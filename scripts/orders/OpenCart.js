@@ -68,11 +68,24 @@ eventHub.addEventListener("addToCart", event => {
       .then(() => {
         const allStatuses = useStatuses()
         const initialOrderStatus = allStatuses.find(status => status.label.toLowerCase() === "Scheduled".toLowerCase())
+        
+        const options = {
+              hour: '2-digit',
+              minute: '2-digit',
+              year: "numeric",
+              month: "numeric",
+              day: "numeric"
+            }
+        const dateObj = new Date()
+
+        let orderTotal = 0.0
+        productsInCart.forEach(product => orderTotal += product.price)
 
         const newOrder = {
           "customerId": currentCustomerId,
           "statusId": initialOrderStatus.id,
-          "timestamp": Date.now()
+          "timestamp": dateObj.toLocaleDateString('en-US', options),
+          "orderTotal": orderTotal
         }
 
         return saveOrder(newOrder, productsInCart)
