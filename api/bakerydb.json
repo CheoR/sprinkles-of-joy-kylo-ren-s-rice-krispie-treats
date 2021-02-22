@@ -205,38 +205,80 @@
   ],
   "orders": [
     {
-      "customerId": 1,
+      "customerId": 4,
       "statusId": 3,
-      "timestamp": "2/21/2021, 05:07 PM",
-      "id": 1
+      "timestamp": "2/22/2021, 02:46 PM",
+      "orderTotal": 102.97,
+      "id": 2
     },
     {
-      "customerId": 1,
+      "customerId": 4,
       "statusId": 3,
-      "timestamp": "2/21/2021, 05:13 PM",
-      "id": 2
+      "timestamp": "2/22/2021, 02:48 PM",
+      "orderTotal": 139.95,
+      "id": 3
     }
   ],
   "orderProducts": [
     {
-      "orderId": 1,
+      "orderId": 58,
       "productId": 1,
       "id": 1
     },
     {
-      "orderId": 1,
+      "orderId": 58,
       "productId": 2,
       "id": 2
     },
     {
-      "orderId": 2,
-      "productId": 6,
+      "orderId": 59,
+      "productId": 1,
       "id": 3
     },
     {
-      "orderId": 2,
-      "productId": 7,
+      "orderId": 59,
+      "productId": 2,
       "id": 4
+    },
+    {
+      "orderId": 2,
+      "productId": 1,
+      "id": 5
+    },
+    {
+      "orderId": 2,
+      "productId": 2,
+      "id": 6
+    },
+    {
+      "orderId": 2,
+      "productId": 3,
+      "id": 7
+    },
+    {
+      "orderId": 3,
+      "productId": 1,
+      "id": 8
+    },
+    {
+      "orderId": 3,
+      "productId": 3,
+      "id": 9
+    },
+    {
+      "orderId": 3,
+      "productId": 2,
+      "id": 10
+    },
+    {
+      "orderId": 3,
+      "productId": 4,
+      "id": 11
+    },
+    {
+      "orderId": 3,
+      "productId": 3,
+      "id": 12
     }
   ],
   "reviews": [

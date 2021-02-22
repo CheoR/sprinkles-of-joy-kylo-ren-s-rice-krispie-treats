@@ -15,35 +15,33 @@ export const OpenCart = () => {
 const render = () => {
   let cartHTML = ""
   let totalCost = 0
-  if (productsInCart){
-    console.info("OpenCart.js")
-    console.table(productsInCart)
-    for (const product of productsInCart) {
-      cartHTML += `
-        <div class="cart">
-          <p>${product.name}</p>
-          <p>$${product.price.toFixed(2)}</p>
-        </div>
-      `
-      totalCost += product.price
+
+  let btn = `<button id="placeOrder" >Place Order</button>`
+    if (productsInCart.length === 0){
+      btn = `<button id="placeOrder" disabled >Place Order</button>`
     }
-  
-    userCart.innerHTML = `
-      <div>
-      <h4>Cart</h4>
-      ${cartHTML}
-      <hr/>
-      <div class="cart">
-      <button id="placeOrder">Place Order</button>
-      <p>$${totalCost.toFixed(2)}</p>
-      </div>
-      </div>
+
+  for (const product of productsInCart) {
+    cartHTML += `
+    <div class="cart">
+    <p>${product.name}</p>
+    <p>$${product.price.toFixed(2)}</p>
+    </div>
     `
-    
+    totalCost += product.price
   }
-    else {
-      userCart.innerHTML = ""
-    }
+  
+  userCart.innerHTML = `
+  <div>
+  <h4>Cart</h4>
+  ${cartHTML}
+  <hr/>
+  <div class="cart">
+  ${ btn }
+  <p>$${totalCost.toFixed(2)}</p>
+  </div>
+  </div>
+  `
 }
 
 eventHub.addEventListener("showCustomerCart", e => OpenCart())
@@ -62,29 +60,37 @@ eventHub.addEventListener("addToCart", event => {
       OpenCart()
     })
 })
-
-eventHub.addEventListener("click", clickEvent => {
-
-    const options = {
-      hour: '2-digit',
-      minute: '2-digit',
-      year: "numeric",  
-      month: "numeric",  
-      day: "numeric"
-    }
-  if (clickEvent.target.id === "placeOrder" && productsInCart.length !== 0) {
+    
+    eventHub.addEventListener("click", clickEvent => {
+      
+    if (clickEvent.target.id === "placeOrder" && productsInCart.length !== 0 && authHelper.isUserLoggedIn() ) {
+    
     const currentCustomerId = parseInt(authHelper.getCurrentUserId())
+    
     getStatuses()
       .then(() => {
         const allStatuses = useStatuses()
         const initialOrderStatus = allStatuses.find(status => status.label.toLowerCase() === "Scheduled".toLowerCase())
+        
+        const options = {
+              hour: '2-digit',
+              minute: '2-digit',
+              year: "numeric",
+              month: "numeric",
+              day: "numeric"
+            }
+        const dateObj = new Date()
+
+        let orderTotal = 0.0
+        productsInCart.forEach(product => orderTotal += product.price)
 
         const dateObj = new Date()
 
         const newOrder = {
           "customerId": currentCustomerId,
           "statusId": initialOrderStatus.id,
-          "timestamp": dateObj.toLocaleDateString('en-US', options)
+          "timestamp": dateObj.toLocaleDateString('en-US', options),
+          "orderTotal": orderTotal
         }
 
         console.info("OpenCart.js - placeOrder")
@@ -93,13 +99,8 @@ eventHub.addEventListener("click", clickEvent => {
         return saveOrder(newOrder, productsInCart)
       })
       .then(() => {
-        /*
-          save order complete, clear cart
-        */
-       console.log("in the last then")
-       productsInCart = []
-       OpenCart()
-
-      }) // then 
+        productsInCart = []
+        OpenCart()
+      })
   }
 })

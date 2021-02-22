@@ -19,44 +19,19 @@ export const getOrders = () => {
 }
 
 export const saveOrder = (order, productsInOrder) => {
-
-  if(authHelper.isUserLoggedIn()) {
-    /*
-      Either restrict user ability to place order if not logged in, or add disabled class to button if 
-      user is not logged in.
-    */
-    return fetch(`${bakeryAPI.baseURL}/orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(order)
-    })
-      .then(res => { 
-        const res_json = res.json()
-        // console.info("OrderProvider.js  res.json()")
-        // console.table(res_json)
-        return res_json
-      })
-      .then((createdOrder) => {
-        /*
-          response from 41 will be in order.id is the saved order
-
-        */
-        console.info("OrderProvider.js - saveOrder - productsInOrder")
-        console.table(productsInOrder)
-        console.table(order)
-        console.log("=====")
-
-        /*
-        OrderProduct is saving without orderId
-        {
-          "productId": 1,
-          "id": 1
-        },
-        {
-          "productId": 2,
-          "id": 2
+  return fetch(`${bakeryAPI.baseURL}/orders`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(order)
+  })
+    .then(res => res.json())
+    .then((createOrder) => {
+      const orderProducts = productsInOrder.map(product => {
+        return {
+          "orderId": createOrder.id,
+          "productId": product.id
         }
         */
         const orderProducts = productsInOrder.map(product => {
@@ -70,19 +45,44 @@ export const saveOrder = (order, productsInOrder) => {
         productsInOrder = [] //change
         return saveOrderProducts(orderProducts)
       })
-      .then(() => getOrders())
-      .then(dispatchStateChangeEvent)
-      /*
-        statusId needs to be set before calling getOrders, else resuts in error:
-        GET http://localhost:8088/orders?_expand=status net::ERR_CONNECTION_REFUSED
-      */
-  } else {
-      alert("YOu must be logged in to place order")
-  }
-} // saveOrder
+      return saveOrderProducts(orderProducts)
+    })
+    .then(() => getOrders())
+    .then(dispatchStateChangeEvent)
+    .then(() => {
+      return
+    })
+}
 
 const dispatchStateChangeEvent = () => {
   const ordersStateChangedEvent = new CustomEvent("ordersStateChanged")
   console.info("Dispatching: ordersStateChanged")
   eventHub.dispatchEvent(ordersStateChangedEvent)
 }
+
+eventHub.addEventListener("showPastOrders", event => {
+    if (authHelper.isUserLoggedIn) {
+      const currentUserId = parseInt(authHelper.getCurrentUserId())
+      getOrders() // get current state of 'orders' in bakerydb.json
+      .then(() => {
+        const orders = useOrders() // get a copy of current 'orders'
+        const customerOrderHistory = orders.filter(order => order.customerId === currentUserId)
+        // console.log('customerOrderHistory: ', customerOrderHistory);
+      const customEvent = new CustomEvent ("showCustomerOrderHistory", {
+        detail: {
+          customerOrderHistory: customerOrderHistory
+        }
+      })
+      eventHub.dispatchEvent(customEvent)
+    })
+  }
+})
+
+
+// "orders": [
+//   {
+//     "id": 1,
+//     "customerId": 3,
+//     "statusId": 1,
+//     "timestamp": 1613628996949
+//   },
