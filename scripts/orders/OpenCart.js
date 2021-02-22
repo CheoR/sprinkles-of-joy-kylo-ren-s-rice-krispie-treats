@@ -59,7 +59,7 @@ eventHub.addEventListener("addToCart", event => {
 })
 
 eventHub.addEventListener("click", clickEvent => {
-  if (clickEvent.target.id === "placeOrder" && productsInCart.length !== 0) {
+  if (clickEvent.target.id === "placeOrder" && productsInCart.length !== 0 && authHelper.isUserLoggedIn() ) {
     const currentCustomerId = parseInt(authHelper.getCurrentUserId())
     getStatuses()
       .then(() => {
