@@ -221,26 +221,6 @@
   ],
   "orderProducts": [
     {
-      "orderId": 58,
-      "productId": 1,
-      "id": 1
-    },
-    {
-      "orderId": 58,
-      "productId": 2,
-      "id": 2
-    },
-    {
-      "orderId": 59,
-      "productId": 1,
-      "id": 3
-    },
-    {
-      "orderId": 59,
-      "productId": 2,
-      "id": 4
-    },
-    {
       "orderId": 2,
       "productId": 1,
       "id": 5
@@ -281,15 +261,7 @@
       "id": 12
     }
   ],
-  "reviews": [
-    {
-      "id": 1,
-      "rating": 5,
-      "review": "",
-      "customerId": 0,
-      "productId": 0
-    }
-  ],
+  "reviews": [],
   "contactInqueries": [
     {
       "id": 1,

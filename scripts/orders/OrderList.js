@@ -2,6 +2,7 @@ import { authHelper } from "../auth/authHelper.js"
 import { getCustomer } from "../customers/CustomerProvider.js"
 import { Order } from "./Order.js"
 import { getOrders, useOrders } from "./OrderProvider.js"
+import {deleteOrder} from "./OrderProvider.js"
 
 const eventHub = document.querySelector("#container")
 const contentContainer = document.querySelector(".userOrders")
@@ -48,4 +49,21 @@ eventHub.addEventListener("click", event => {
 
 const closeModal = () => {
   contentContainer.innerHTML = ""
+}
+
+eventHub.addEventListener("click", clickEvent => {
+  
+  if (clickEvent.target.id.startsWith("deleteOrder")){
+      const [prefix, id] = clickEvent.target.id.split("--")
+      debugger
+      deleteOrder(id)
+      .then(dispatchEvent)
+      
+      .then(OrderList)
+    }
+})
+
+const dispatchEvent = () =>{
+  const customEvent = new CustomEvent ("orderStatusChanged")
+  eventHub.dispatchEvent(customEvent)
 }

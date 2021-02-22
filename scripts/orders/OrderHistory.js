@@ -15,6 +15,7 @@ eventHub.addEventListener("showCustomerOrderHistory", event => {
                             Status Id: ${order.statusId} <br>
                             Timestamp: ${order.timestamp} <br>
                             Order Total: ${order.orderTotal} <br>
+                            <button id="deleteOrder--${order.id}">Delete</button>
                         </div> <br>
                     </div>
         `
