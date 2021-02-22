@@ -389,6 +389,24 @@
       "statusId": 3,
       "timestamp": 1614006961636,
       "id": 31
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1614007145884,
+      "id": 32
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1614007375174,
+      "id": 33
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": 1614007548806,
+      "id": 34
     }
   ],
   "orderProducts": [
@@ -546,6 +564,51 @@
       "orderId": 31,
       "productId": 6,
       "id": 73
+    },
+    {
+      "orderId": 32,
+      "productId": 2,
+      "id": 74
+    },
+    {
+      "orderId": 32,
+      "productId": 3,
+      "id": 75
+    },
+    {
+      "orderId": 32,
+      "productId": 4,
+      "id": 76
+    },
+    {
+      "orderId": 33,
+      "productId": 10,
+      "id": 77
+    },
+    {
+      "orderId": 33,
+      "productId": 11,
+      "id": 78
+    },
+    {
+      "orderId": 33,
+      "productId": 11,
+      "id": 79
+    },
+    {
+      "orderId": 33,
+      "productId": 10,
+      "id": 80
+    },
+    {
+      "orderId": 34,
+      "productId": 1,
+      "id": 81
+    },
+    {
+      "orderId": 34,
+      "productId": 2,
+      "id": 82
     }
   ],
   "reviews": [
