@@ -24,10 +24,10 @@ export const saveOrder = (order, productsInOrder) => {
     body: JSON.stringify(order)
   })
     .then(res => res.json())
-    .then(() => {
+    .then((createOrder) => {
       const orderProducts = productsInOrder.map(product => {
         return {
-          "orderId": order.id,
+          "orderId": createOrder.id,
           "productId": product.id
         }
       })
