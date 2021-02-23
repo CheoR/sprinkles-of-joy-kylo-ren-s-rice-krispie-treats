@@ -13,5 +13,8 @@ export const authHelper = {
     return false
   },
   getCurrentUserId: () => sessionStorage.getItem("soj-customer-id"),
-  storeUserInSessionStorage: (userId) => sessionStorage.setItem("soj-customer-id", userId)
+  storeUserInSessionStorage: (userId) => {
+    console.info(`In authHelper.js - userId: ${ userId }`)
+    return sessionStorage.setItem("soj-customer-id", userId)
+  }
 }

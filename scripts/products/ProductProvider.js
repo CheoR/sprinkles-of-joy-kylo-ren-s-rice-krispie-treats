@@ -8,6 +8,8 @@ export const getProducts = () => {
   return fetch(`${bakeryAPI.baseURL}/products`)
           .then(response => response.json())
           .then(bakedGoods => {
+            console.info("ProductsProvider.js")
+            console.table(bakedGoods)
             products = bakedGoods
     })
 }

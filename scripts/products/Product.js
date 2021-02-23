@@ -23,6 +23,8 @@ eventHub.addEventListener("click", evt => {
                 addedProduct: parseInt(productId)
             }
         })
+        console.info("Product.js")
+        console.log("dispatchng: addToCart")
         eventHub.dispatchEvent(addProductEvent)
     }
 })

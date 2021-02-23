@@ -8,11 +8,15 @@ export const getOrderProducts = () => {
   return fetch(`${bakeryAPI.baseURL}/orderproducts`)
     .then(response => response.json())
     .then(apiData => {
+      console.info("OrderProductProvider.js")
+      console.table(apiData)
       orderProducts = apiData
     })
 }
 
 export const saveOrderProducts = (orderProductsArray) => {
+  console.info("OrderProductProvider - saveOrderProducts - orderProductsArray")
+  console.table(orderProductsArray)
   const orderProductsPromiseArray = orderProductsArray.map(op => {
     return fetch(`${bakeryAPI.baseURL}/orderproducts`, {
       method: "POST",
@@ -22,5 +26,7 @@ export const saveOrderProducts = (orderProductsArray) => {
       body: JSON.stringify(op)
     })
   })
+  console.info("OrderProductProvider - saveOrderProducts")
+  console.table(orderProductsPromiseArray)
   return Promise.all(orderProductsPromiseArray)
 }
