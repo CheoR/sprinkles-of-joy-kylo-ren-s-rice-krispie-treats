@@ -31,6 +31,17 @@ export const saveOrder = (order, productsInOrder) => {
           "orderId": createOrder.id,
           "productId": product.id
         }
+
+        const orderProducts = productsInOrder.map(product => {
+          return {
+            "orderId": createdOrder.id,
+            "productId": product.id
+          }
+        })
+        console.info("OrderProvider.js - saveOrder")
+        console.table(orderProducts)
+        productsInOrder = [] //change
+        return saveOrderProducts(orderProducts)
       })
       return saveOrderProducts(orderProducts)
     })
@@ -43,7 +54,7 @@ export const saveOrder = (order, productsInOrder) => {
 
 const dispatchStateChangeEvent = () => {
   const ordersStateChangedEvent = new CustomEvent("ordersStateChanged")
-
+  console.info("Dispatching: ordersStateChanged")
   eventHub.dispatchEvent(ordersStateChangedEvent)
 }
 
@@ -54,7 +65,6 @@ eventHub.addEventListener("showPastOrders", event => {
       .then(() => {
         const orders = useOrders() // get a copy of current 'orders'
         const customerOrderHistory = orders.filter(order => order.customerId === currentUserId)
-        // console.log('customerOrderHistory: ', customerOrderHistory);
       const customEvent = new CustomEvent ("showCustomerOrderHistory", {
         detail: {
           customerOrderHistory: customerOrderHistory
@@ -65,11 +75,14 @@ eventHub.addEventListener("showPastOrders", event => {
   }
 })
 
-
-// "orders": [
-//   {
-//     "id": 1,
-//     "customerId": 3,
-//     "statusId": 1,
-//     "timestamp": 1613628996949
-//   },
+export const deleteOrder = (id) =>{
+  return fetch(`http://localhost:8088/orders/${id}`, {
+    method: "DELETE"
+})
+.then(getOrders)
+.then(dispatchStateChangeEvent)
+/*
+  After deletion, dispatch an event that will trigger OrderHistory/OrderList to rerender.
+  customerOrders
+*/
+}

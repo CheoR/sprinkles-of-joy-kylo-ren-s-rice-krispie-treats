@@ -8,6 +8,8 @@ export const getCustomers = () => {
   return fetch(`${bakeryAPI.baseURL}/customers`)
     .then(response => response.json())
     .then(parsedResponse => {
+      console.info("CustomerProvider.js")
+      console.table(parsedResponse)
       customers = parsedResponse
     })
 }
@@ -19,5 +21,12 @@ export const getCustomer = (id) => {
 export const customerLogin = (email, password) => {
   return fetch(`${bakeryAPI.baseURL}/customers?email=${email}&password=${password}`)
     .then(res => res.json())
-    .then(user =>  user.length ? user[0] : false)
+    .then(user =>  {
+      /*
+        user - array
+      */
+     console.info("Customer provider - customerLogin")
+     console.log(user[0])
+      return user.length ? user[0] : false
+    })
 }
