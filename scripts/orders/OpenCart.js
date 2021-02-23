@@ -53,10 +53,6 @@ eventHub.addEventListener("addToCart", event => {
       const allProducts = useProducts()
       const productToBeAdded = allProducts.find(prod => prod.id === productId)
       productsInCart.push(productToBeAdded)
-
-      console.info("OpenCart.js - addToCart")
-      console.table(allProducts)
-      console.table(productToBeAdded)
       OpenCart()
     })
 })
@@ -90,10 +86,6 @@ eventHub.addEventListener("addToCart", event => {
           "timestamp": dateObj.toLocaleDateString('en-US', options),
           "orderTotal": orderTotal
         }
-
-        console.info("OpenCart.js - placeOrder")
-        console.table(newOrder)
-        console.table(productsInCart)
         return saveOrder(newOrder, productsInCart)
       })
       .then(() => {

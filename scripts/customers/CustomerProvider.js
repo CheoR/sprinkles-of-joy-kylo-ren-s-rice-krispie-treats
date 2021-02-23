@@ -8,8 +8,6 @@ export const getCustomers = () => {
   return fetch(`${bakeryAPI.baseURL}/customers`)
     .then(response => response.json())
     .then(parsedResponse => {
-      console.info("CustomerProvider.js")
-      console.table(parsedResponse)
       customers = parsedResponse
     })
 }
@@ -25,8 +23,6 @@ export const customerLogin = (email, password) => {
       /*
         user - array
       */
-     console.info("Customer provider - customerLogin")
-     console.log(user[0])
       return user.length ? user[0] : false
     })
 }

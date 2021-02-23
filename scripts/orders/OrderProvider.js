@@ -38,8 +38,6 @@ export const saveOrder = (order, productsInOrder) => {
             "productId": product.id
           }
         })
-        console.info("OrderProvider.js - saveOrder")
-        console.table(orderProducts)
         productsInOrder = [] //change
         return saveOrderProducts(orderProducts)
       })
@@ -54,7 +52,6 @@ export const saveOrder = (order, productsInOrder) => {
 
 const dispatchStateChangeEvent = () => {
   const ordersStateChangedEvent = new CustomEvent("ordersStateChanged")
-  console.info("Dispatching: ordersStateChanged")
   eventHub.dispatchEvent(ordersStateChangedEvent)
 }
 

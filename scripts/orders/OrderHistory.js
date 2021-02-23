@@ -3,7 +3,6 @@ const contentTarget = document.querySelector(".userOrders")
 
  export const renderCustomerOrderHistory = (customerOrderHistory) => {
     // const customerOrderHistory = event.detail.customerOrderHistory
-    console.warn("== in order history rendercustomerorderhistory")
     const customerOrder = customerOrderHistory.map(order => {
         return `
             <div class="customerOrders">

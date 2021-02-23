@@ -1,6 +1,7 @@
 import { getProducts, useProducts } from "./ProductProvider.js"
 import { getCategories, useCategories } from "../categories/CategoryProvider.js"
 import { Product } from "./Product.js"
+import { useOrders } from "../orders/OrderProvider.js"
 
 const eventHub = document.querySelector("#container")
 const contentTarget = document.querySelector(".menu__items")
@@ -25,3 +26,18 @@ const render = () => {
     return Product(product, productCategory)
   }).join("")
 }
+
+eventHub.addEventListener("categorySelected", changeEvent => {
+  getProducts()
+    .then(getCategories)
+    .then(() => {
+      bakeryProducts = useProducts()
+      bakeryCategories = useCategories()
+      if (changeEvent.detail.selectedCategory > 0) {
+        bakeryProducts = bakeryProducts.filter(product => product.categoryId === changeEvent.detail.selectedCategory)
+        render()
+      } else {
+        render()
+      }
+    })
+  })

@@ -9,19 +9,16 @@ export const CategorySelect = () => {
   getCategories()
   .then(() => {
     categories = useCategories()
-    console.info("CategoryProvider.js")
-    console.table(categories)
-    render()
+    renderCategories(categories)
   })
 }
 
 
-const render = () => {
-  const categoriesMap = categories.map(category => `<option value="${category.id}">${category.name}</option>`).join("")
-  contentTarget.innerHtml = `
-  <select class="dropdown" id="categorySelect">
-  <option value="0">All baked goods...</option>
-  ${categoriesMap}
+const renderCategories = (categories) => {
+  contentTarget.innerHTML = `
+      <select class="dropdown" id="categorySelect">
+          <option value="0">All baked goods...</option>
+          ${categories.map(category => `<option value="${category.id}">${category.name}</option>`).join("")}
       </select>
   `
 }
@@ -30,13 +27,9 @@ eventHub.addEventListener("change", changeEvent => {
   if (changeEvent.target.id === "categorySelect") {
     const categoryCustomEvent = new CustomEvent("categorySelected", {
       detail: {
-        selectedCategory: changeEvent.target.value
+        selectedCategory: parseInt(changeEvent.target.value)
       }
     })
-    console.info("dispatching: categorySelected")
     eventHub.dispatchEvent(categoryCustomEvent)
   }
 })
-
-// dispatch seems good but we are not listening to the change when a category is selected.
-// we need to set up a CategoryList.js and render the categories as they are selected / checking the categoryId against the category chosen.

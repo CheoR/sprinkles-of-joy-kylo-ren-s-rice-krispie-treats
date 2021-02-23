@@ -7,15 +7,11 @@ const contentTarget = document.querySelector(".form__register")
 let categories = []
 
 export const RegisterForm = () => {
-      console.info("RegistrationForm.js")
-    console.log("showRegisterForm heard")
   render()
 }
 
 const render = () => {
   if (!authHelper.isUserLoggedIn()) {
-    console.info("RegistrationForm.js")
-    console.log(`Is User loged in: ${ !authHelper.isUserLoggedIn() }`)
     contentTarget.innerHTML = `
       <h3>Register for a customer account</h3>
       <p>Already have an account? Login <a href="#" id="link__login">here</a>.</p>
@@ -54,8 +50,6 @@ eventHub.addEventListener("click", evt => {
 
     const customEvent = new CustomEvent("showLoginForm")
     
-    console.info("RegistrationForm.js")
-    console.log("showLoginForm dispatched")
     eventHub.dispatchEvent(customEvent)
   }
 })
