@@ -33,7 +33,7 @@ export const saveOrder = (order, productsInOrder) => {
           "orderId": createOrder.id,
           "productId": product.id
         }
-        */
+
         const orderProducts = productsInOrder.map(product => {
           return {
             "orderId": createdOrder.id,

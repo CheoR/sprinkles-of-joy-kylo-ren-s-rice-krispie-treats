@@ -84,8 +84,6 @@ eventHub.addEventListener("addToCart", event => {
         let orderTotal = 0.0
         productsInCart.forEach(product => orderTotal += product.price)
 
-        const dateObj = new Date()
-
         const newOrder = {
           "customerId": currentCustomerId,
           "statusId": initialOrderStatus.id,

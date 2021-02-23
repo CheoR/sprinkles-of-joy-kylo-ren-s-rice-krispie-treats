@@ -302,7 +302,48 @@
       "id": 13
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "date": "2/23/2021, 06:56 AM",
+      "userId": 1,
+      "productId": 3,
+      "rating": 4,
+      "review": "test",
+      "id": 1
+    },
+    {
+      "date": "2/23/2021, 07:13 AM",
+      "userId": 1,
+      "productId": 5,
+      "rating": 1,
+      "review": "second attempt",
+      "id": 2
+    },
+    {
+      "date": "2/23/2021, 07:13 AM",
+      "userId": 1,
+      "productId": 3,
+      "rating": 4,
+      "review": "second attempt",
+      "id": 3
+    },
+    {
+      "date": "2/23/2021, 07:40 AM",
+      "userId": 1,
+      "productId": null,
+      "rating": null,
+      "review": "",
+      "id": 4
+    },
+    {
+      "date": "2/23/2021, 07:41 AM",
+      "userId": 1,
+      "productId": null,
+      "rating": null,
+      "review": "",
+      "id": 5
+    }
+  ],
   "contactInqueries": [
     {
       "id": 1,
