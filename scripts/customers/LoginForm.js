@@ -8,16 +8,12 @@ const contentTarget = document.querySelector(".form__login")
 let categories = []
 
 export const LoginForm = () => {
-    console.info("LoginForm.js")
-  console.log(`LoginForm heard`)
   render()
 }
 
 const render = () => {
   if (!authHelper.isUserLoggedIn()) {
 
-    console.info("LoginForm.js")
-  console.log(`Is user logged in: ${ !authHelper.isUserLoggedIn() }`)
     contentTarget.innerHTML = `
       <h3>Login</h3>
       <p>Don't have an account? Click <a href="#" id="link__register">here</a> to register.</p>
@@ -42,17 +38,10 @@ eventHub.addEventListener("click", e => {
     const loginEmail = document.querySelector("#login-email").value
     const loginPassword = document.querySelector("#login-password").value
     
-    console.info("LoginForm.js")
-    console.warn("delte these credentials later")
-    console.log(`User login: ${ loginEmail } - User pasword: ${ loginPassword } `)
 
     customerLogin(loginEmail, loginPassword)
     .then(user => {
         if (user) {
-              console.info("LoginForm.js")
-    console.warn("delte these credentials later")
-    console.log(`User `)
-    console.log(user)
           contentTarget.innerHTML = ""
 
           authHelper.storeUserInSessionStorage(user.id)
@@ -75,8 +64,6 @@ eventHub.addEventListener("showLoginForm", LoginForm)
 
 // let logoutTarget = document.querySelector(".userNav")
 eventHub.addEventListener("logout", logoutClicked => {
-  console.info("LoginForm.js")
-  console.log(`logout heard`)
   sessionStorage.clear()
   LoginForm()
   CustomerNav()

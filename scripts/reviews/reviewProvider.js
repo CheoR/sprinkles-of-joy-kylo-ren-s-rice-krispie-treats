@@ -16,7 +16,6 @@ const reviewDBChangeEvent = new CustomEvent("reviewDBChangeEvent")
 
 
 const reviewDBChagned = () => {
-  console.info("reviewFormSubmitted saved - need to dispatach state changed")
   eventHub.dispatchEvent(reviewDBChangeEvent)
 }
 
