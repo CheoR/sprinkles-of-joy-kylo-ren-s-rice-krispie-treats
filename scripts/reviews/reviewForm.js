@@ -7,8 +7,6 @@ let userReviewsElement = document.querySelector(".userReviews")
 
 
 const _render = ( productsCollection ) => {
- console.log("made it to here")
- console.table(productsCollection)
 
  const products = productsCollection.map(( product ) => `<option value="${ product.id }">${ product.name }</option>`) // productsCollection
 
