@@ -78,11 +78,13 @@ eventHub.addEventListener("showPastOrders", event => {
   }
 })
 
-
-// "orders": [
-//   {
-//     "id": 1,
-//     "customerId": 3,
-//     "statusId": 1,
-//     "timestamp": 1613628996949
-//   },
+export const deleteOrder = (id) =>{
+  return fetch(`http://localhost:8088/orders/${id}`, {
+    method: "DELETE"
+})
+.then(getOrders)
+/*
+  After deletion, dispatch an event that will trigger OrderHistory/OrderList to rerender.
+  customerOrders
+*/
+}
