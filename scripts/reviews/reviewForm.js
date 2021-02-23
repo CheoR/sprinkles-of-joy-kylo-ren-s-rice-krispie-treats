@@ -1,6 +1,7 @@
 import { getReviews, useReviews } from "./reviewProvider.js"
 import { getProducts, useProducts } from "../products/ProductProvider.js"
 import { authHelper } from "../auth/authHelper.js"
+import { reviewList } from "./reviewList.js"
 
 const eventHub = document.querySelector('#container')
 let userReviewsElement = document.querySelector(".userReviews")
@@ -50,9 +51,10 @@ const _render = ( productsCollection ) => {
 eventHub.addEventListener('showNewReviewForm', clickEvent => {
 getProducts()
  .then(() => {
-   const products = useProducts()
    if(authHelper.isUserLoggedIn()) {
-     _render(products)
+     const productNames = useProducts()
+     _render(productNames)
+     reviewList()
    } else {
      alert("Please log in to review product")
    }

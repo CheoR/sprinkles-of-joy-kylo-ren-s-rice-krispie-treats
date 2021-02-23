@@ -313,7 +313,7 @@
     },
     {
       "date": "2/23/2021, 07:13 AM",
-      "userId": 1,
+      "userId": 2,
       "productId": 5,
       "rating": 1,
       "review": "second attempt",
@@ -321,7 +321,7 @@
     },
     {
       "date": "2/23/2021, 07:13 AM",
-      "userId": 1,
+      "userId": 3,
       "productId": 3,
       "rating": 4,
       "review": "second attempt",
@@ -329,8 +329,8 @@
     },
     {
       "date": "2/23/2021, 07:40 AM",
-      "userId": 1,
-      "productId": null,
+      "userId": 4,
+      "productId": 1,
       "rating": null,
       "review": "",
       "id": 4
@@ -338,7 +338,7 @@
     {
       "date": "2/23/2021, 07:41 AM",
       "userId": 1,
-      "productId": null,
+      "productId": 4,
       "rating": null,
       "review": "",
       "id": 5
