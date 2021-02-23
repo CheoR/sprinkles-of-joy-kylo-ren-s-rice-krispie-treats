@@ -1,26 +1,16 @@
 import { getReviews, useReviews } from "./reviewProvider.js"
 import { getProducts, useProducts } from "../products/ProductProvider.js"
 import { authHelper } from "../auth/authHelper.js"
-// import { Review } from "./Review.js"
+import { Review } from "./Review.js"
 
 const eventHub = document.querySelector('#container')
-let userReviewsElement = document.querySelector(".userReviews")
 
 
 const _render = ( reviews, products ) => {
- const reviewElements = reviews.map((review) => {
-  return `
-   <li class="review">
-    <p>Date: ${ review.date }</p>
-    <p>Product: ${ products.find((product) => product.id === review.productId).name }</p>
-    <p>Rating: ${ review.rating }</p>
-    <p>Review: ${ review.review }</p>
-    <button id="delete--${ review.id }">Delete</button>
-   </li>
-  `
-}).join("")
+ let userReviewsElement = document.querySelector(".userReviewList")
+ const reviewElements = reviews.map((review) => Review(review, products)).join("")
 
- userReviewsElement.innerHTML += `
+ userReviewsElement.innerHTML = `
  <section class="yourReviews">
   <h2>Your Reviews</h2>
   <ul class="reviewList>
@@ -43,8 +33,10 @@ getReviews()
    return _products.find((product) => product.id === review.productId)
   }) // _userReviews
 
-  debugger
   _render(_userReviews, _productNames)
 
  })
-}
+} // reviewList
+
+
+eventHub.addEventListener("reviewDBChangeEvent", reviewList) // reviewDBChangeEvent

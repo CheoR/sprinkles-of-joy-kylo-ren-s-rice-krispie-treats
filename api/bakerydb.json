@@ -238,6 +238,13 @@
       "timestamp": "2/22/2021, 10:01 PM",
       "orderTotal": 96.86,
       "id": 6
+    },
+    {
+      "customerId": 1,
+      "statusId": 3,
+      "timestamp": "2/23/2021, 11:02 AM",
+      "orderTotal": 16.99,
+      "id": 7
     }
   ],
   "orderProducts": [
@@ -300,17 +307,14 @@
       "orderId": 6,
       "productId": 5,
       "id": 13
+    },
+    {
+      "orderId": 7,
+      "productId": 3,
+      "id": 14
     }
   ],
   "reviews": [
-    {
-      "date": "2/23/2021, 06:56 AM",
-      "userId": 1,
-      "productId": 3,
-      "rating": 4,
-      "review": "test",
-      "id": 1
-    },
     {
       "date": "2/23/2021, 07:13 AM",
       "userId": 2,
@@ -336,10 +340,10 @@
       "id": 4
     },
     {
-      "date": "2/23/2021, 07:41 AM",
+      "date": "2/23/2021, 11:02 AM",
       "userId": 1,
-      "productId": 4,
-      "rating": null,
+      "productId": 6,
+      "rating": 4,
       "review": "",
       "id": 5
     }

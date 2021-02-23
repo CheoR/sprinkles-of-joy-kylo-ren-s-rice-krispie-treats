@@ -12,7 +12,17 @@ const dateOptions = {
 }
 
 
+const reviewDBChangeEvent = new CustomEvent("reviewDBChangeEvent")
+
+
+const reviewDBChagned = () => {
+  console.info("reviewFormSubmitted saved - need to dispatach state changed")
+  eventHub.dispatchEvent(reviewDBChangeEvent)
+}
+
+
 export const useReviews = () => _reviews.slice()
+
 
 export const getReviews = () => {
  return fetch(`${bakeryAPI.baseURL}/reviews`)
@@ -45,6 +55,20 @@ const _saveReview = ( review ) => {
 } // _saveReview
 
 
+const _deleteReview = ( reviewId ) => {
+  return fetch(`${bakeryAPI.baseURL}/reviews/${reviewId}`, {
+    method: "DELETE"
+  })
+} // _deleteReview
+
+
+eventHub.addEventListener("userDeletedReview", clickEvent => {
+  const reviewId = clickEvent.detail.reviewId
+  _deleteReview(reviewId)
+    .then(reviewDBChagned)
+}) // eventHub - userDeletedReview
+
+
 eventHub.addEventListener("reviewFormSubmitted", clickEvent => {
 
   const dateObj = new Date()
@@ -64,8 +88,5 @@ eventHub.addEventListener("reviewFormSubmitted", clickEvent => {
   }
 
 _saveReview(newReview)
-  .then(getReviews)
-  .then(() => {
-    console.info("reviewFormSubmitted saved - need to dispatach state changed")
-  }) // _saveReview
-}) // eventHub - click
+  .then(reviewDBChagned)
+}) // eventHub - reviewFormSubmitted

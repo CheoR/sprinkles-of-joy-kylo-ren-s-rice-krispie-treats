@@ -44,6 +44,8 @@ const _render = ( productsCollection ) => {
    </fieldset>
    <input id="submit" type="submit" value="Submit" />
   </form>
+
+  <div class="userReviewList"></div>
  `
 }
 
