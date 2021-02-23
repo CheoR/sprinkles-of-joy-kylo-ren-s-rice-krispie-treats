@@ -17,7 +17,6 @@ export const OrderList = () => {
       .then(() => {
         customerOrders = useOrders()
         console.warn("in OrderLIst ")
-        console.table(customerOrders)
         renderCustomerOrderHistory(customerOrders)
       })
   }
@@ -41,8 +40,6 @@ export const OrderList = () => {
 // }
 
 eventHub.addEventListener("showOrderHistory", () => {
-  console.info("OrderLIst.js")
-  console.log("heard showOrderHistory")
   OrderList()
 })
 
@@ -68,8 +65,11 @@ eventHub.addEventListener("click", clickEvent => {
     } // if
 })
 
+eventHub.addEventListener("ordersStateChanged", OrderList)
+
 const dispatchEvent = () =>{
   const customEvent = new CustomEvent("orderStatusChanged")
   eventHub.dispatchEvent(customEvent)
+  // debugger
   console.log("event disptached")
 }

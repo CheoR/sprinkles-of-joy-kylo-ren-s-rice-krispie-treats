@@ -12,8 +12,6 @@ export const getOrders = () => {
   return fetch(`${bakeryAPI.baseURL}/orders?_expand=status`)
     .then(response => response.json())
     .then(response => {
-      console.info("OrderProvider.js")
-      console.table(response)
       orders = response
     })
 }
@@ -67,7 +65,6 @@ eventHub.addEventListener("showPastOrders", event => {
       .then(() => {
         const orders = useOrders() // get a copy of current 'orders'
         const customerOrderHistory = orders.filter(order => order.customerId === currentUserId)
-        // console.log('customerOrderHistory: ', customerOrderHistory);
       const customEvent = new CustomEvent ("showCustomerOrderHistory", {
         detail: {
           customerOrderHistory: customerOrderHistory
@@ -83,6 +80,7 @@ export const deleteOrder = (id) =>{
     method: "DELETE"
 })
 .then(getOrders)
+.then(dispatchStateChangeEvent)
 /*
   After deletion, dispatch an event that will trigger OrderHistory/OrderList to rerender.
   customerOrders
