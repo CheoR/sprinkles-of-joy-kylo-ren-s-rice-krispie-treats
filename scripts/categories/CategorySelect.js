@@ -34,3 +34,6 @@ eventHub.addEventListener("change", changeEvent => {
     eventHub.dispatchEvent(categoryCustomEvent)
   }
 })
+
+// dispatch seems good but we are not listening to the change when a category is selected.
+// we need to set up a CategoryList.js and render the categories as they are selected / checking the categoryId against the category chosen.
