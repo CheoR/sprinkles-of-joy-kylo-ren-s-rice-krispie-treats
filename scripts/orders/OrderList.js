@@ -2,7 +2,7 @@ import { authHelper } from "../auth/authHelper.js"
 import { getCustomer } from "../customers/CustomerProvider.js"
 import { Order } from "./Order.js"
 import { getOrders, useOrders } from "./OrderProvider.js"
-import {deleteOrder} from "./OrderProvider.js"
+import { deleteOrder } from "./OrderProvider.js"
 
 const eventHub = document.querySelector("#container")
 const contentContainer = document.querySelector(".userOrders")
@@ -16,7 +16,9 @@ export const OrderList = () => {
     getOrders()
       .then(() => {
         customerOrders = useOrders()
-        renderCustomerOrderHistory()
+        console.warn("in OrderLIst ")
+        console.table(customerOrders)
+        renderCustomerOrderHistory(customerOrders)
       })
   }
 }
@@ -56,14 +58,16 @@ eventHub.addEventListener("click", clickEvent => {
   
   if (clickEvent.target.id.startsWith("deleteOrder")){
       const [prefix, id] = clickEvent.target.id.split("--")
+
+      console.log("click event here")
       deleteOrder(id)
       .then(dispatchEvent)
-      
       .then(OrderList)
-    }
+    } // if
 })
 
 const dispatchEvent = () =>{
-  const customEvent = new CustomEvent ("orderStatusChanged")
+  const customEvent = new CustomEvent("orderStatusChanged")
   eventHub.dispatchEvent(customEvent)
+  console.log("event disptached")
 }

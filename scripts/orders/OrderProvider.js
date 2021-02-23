@@ -70,4 +70,8 @@ export const deleteOrder = (id) =>{
     method: "DELETE"
 })
 .then(getOrders)
+/*
+  After deletion, dispatch an event that will trigger OrderHistory/OrderList to rerender.
+  customerOrders
+*/
 }
